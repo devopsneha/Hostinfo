@@ -1,0 +1,19 @@
+phases:
+ install:
+    runtime-versions:
+      docker: 18
+ pre_build:
+    commands:
+      - "echo Logging in to ECR..."
+      - "$(aws ecr get-login --no-include-email --region us-east-2)" // for logging in ecr
+ build:
+    commands:
+      - "echo Build started on `date`"
+      - "echo Building the Docker image..."
+      - "docker build -t hostinfo  . "
+      - "docker tag hostinfo 543816070942.dkr.ecr.us-east-1.amazonaws.com/cybage_devops_ecrrepo_neha:v2.1.0"
+ post_build:
+    commands:
+       - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/cybage_devops_ecrrepo_neha:v2.1.0"
+ 
+version: 0.2
