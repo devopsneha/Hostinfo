@@ -4,7 +4,6 @@ import platform
 
 app = Flask(__name__)
 
-
 #getting the details
 @app.route('/hostinfo')
 
