@@ -13,5 +13,7 @@ jobs:
           name: install dependencies
           command:
             python --version
+          command:
             sudo apt install python-pip -y
+          command:
             pip --version
