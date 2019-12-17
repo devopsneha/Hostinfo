@@ -10,10 +10,22 @@ jobs:
       - checkout
 
       - run:
-          name: install dependencies
+          name: python version
           command:
             python --version
+      - run:
+          name: install pip
           command:
             sudo apt install python-pip -y
+      - run:
+          name: pip version
           command:
             pip --version
+      - run:
+          name: install flask
+          command:
+            pip install Flask
+      - run:
+          name: machineinfo
+          command:
+            python app.py
