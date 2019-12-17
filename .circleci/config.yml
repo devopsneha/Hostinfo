@@ -18,6 +18,10 @@ jobs:
           command:
             sudo apt install python-pip -y
       - run:
+          name: machineinfo
+          command:
+			pip install --upgrade pip
+      - run:
           name: pip version
           command:
             pip --version
