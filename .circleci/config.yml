@@ -14,3 +14,4 @@ jobs:
           command:
             python --version
             sudo apt install python-pip -y
+            pip --version
