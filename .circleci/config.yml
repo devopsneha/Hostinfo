@@ -1,35 +1,34 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/python:3.6.1
-
-    working_directory: ~/repo
-
-    steps:
+--- 
+jobs: 
+  build: 
+    docker: 
+      - 
+        image: "circleci/python:3.6.1"
+    steps: 
       - checkout
-
-      - run:
-          name: python version
-          command:
-            python --version
-      - run:
-          name: install pip
-          command:
-            sudo apt install python-pip -y
-      - run:
+      - 
+        run: 
+          command: "python --version"
+          name: "python version"
+      - 
+        run: 
+          command: "sudo apt install python-pip -y"
+          name: "install pip"
+      - 
+        run: 
+          command: "pip install --upgrade pip"
           name: machineinfo
-          command:
-	    pip install --upgrade pip
-      - run:
-          name: pip version
-          command:
-            pip --version
-      - run:
-          name: install flask
-          command:
-            pip install Flask
-      - run:
+      - 
+        run: 
+          command: "pip --version"
+          name: "pip version"
+      - 
+        run: 
+          command: "pip install Flask"
+          name: "install flask"
+      - 
+        run: 
+          command: "python app.py"
           name: machineinfo
-          command:
-            python app.py
+    working_directory: ~/repo
+version: 2
