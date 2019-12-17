@@ -1,9 +1,17 @@
-version: 2.1
-orbs:
-  docker: circleci/docker@0.5.19
-workflows:
-  build-docker-image-only:
-    jobs:
-      - docker/publish:
-          deploy: false
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.1
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: install dependencies
+          command:
+		    apt install python3-pip
+            pip install -r requirements.txt
+
