@@ -24,7 +24,7 @@ jobs:
       - run:
           name: install flask
           command:
-            pip install Flask
+            sudo pip install Flask
       - run:
           name: machineinfo
           command:
